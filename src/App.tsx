@@ -1,10 +1,20 @@
-function App() {
+import Hero from "./components/Hero";
+import Summarize from "./components/Summarize";
+import "./App.css";
 
+const App = () => {
   return (
-    <>
-      <p>hello</p>
-    </>
-  )
-}
+    <main>
+      <div className="main">
+        <div className="gradient" />
+      </div>
 
-export default App
+      <div className="app">
+        <Hero />
+        <Summarize />
+      </div>
+    </main>
+  );
+};
+
+export default App;
