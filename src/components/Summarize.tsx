@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import { copy, linkIcon, loader, tick } from "../assets";
+import { copy, linkIcon, loader } from "../assets";
 import { useLazyGetSummaryQuery } from "../services/article";
 
 interface Article {
@@ -110,9 +110,9 @@ const Summarize = () => {
           <p className="font-inter font-bold text-black text-center">
             Well, that wasn't supposed to happen...
             <br />
-            <span className="font-satoshi font-normal text-gray-700">
+            {/* <span className="font-satoshi font-normal text-gray-700">
               {error?.data?.error}
-            </span>
+            </span> */}
           </p>
         ) : (
           article.summary && (
