@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import { copy, linkIcon, loader } from "../assets";
+import { copy, linkIcon, loader, tick } from "../assets";
 import { useLazyGetSummaryQuery } from "../services/article.js";
 
 const Summarize = () => {
@@ -9,7 +9,7 @@ const Summarize = () => {
   });
 
   const [searchArticles, setSearchedArticles] = useState([]);
-
+  const [copied, setCopied] = useState("");
   const [getSummary, { error, isFetching }] = useLazyGetSummaryQuery();
 
   useEffect(() => {
@@ -36,10 +36,17 @@ const Summarize = () => {
 
       localStorage.setItem("articles", JSON.stringify(updatedAllArticles));
 
-      setArticle((prevArticle) => ({...prevArticle, url: ""}))
+      setArticle((prevArticle) => ({ ...prevArticle, url: "" }));
     }
-    
   };
+
+  const handleCopy = (copyUrl) => {
+    setCopied(copyUrl);
+    navigator.clipboard.writeText(copyUrl);
+    setTimeout(() => setCopied(false), 3000);
+  }
+
+
   return (
     <section className="mt-16 w-full max-w-xl">
       <div className="flex flex-col w-full gap-2">
@@ -76,9 +83,9 @@ const Summarize = () => {
               onClick={() => setArticle(item)}
               className="link_card"
             >
-              <div className="copy_btn">
+              <div className="copy_btn" onClick={() => handleCopy(item.url)}>
                 <img
-                  src={copy}
+                  src={copied === item.url ? tick : copy}
                   alt="copy"
                   className="w-[40%] h-[40%] object-contain"
                 />
@@ -99,15 +106,17 @@ const Summarize = () => {
               alt="loader"
               className="w-20 h-20 object-contain"
             />
-            <p className="font-inter font-bold text-black text-center">Ninja is Working!!</p>
+            <p className="font-inter font-bold text-black text-center">
+              Ninja is Working!!
+            </p>
           </>
         ) : error ? (
           <p className="font-inter font-bold text-black text-center">
             Well, that wasn't supposed to happen...
             <br />
-            {/* <span className="font-satoshi font-normal text-gray-700">
+            <span className="font-satoshi font-normal text-gray-700">
               {error?.data?.error}
-            </span> */}
+            </span>
           </p>
         ) : (
           article.summary && (
