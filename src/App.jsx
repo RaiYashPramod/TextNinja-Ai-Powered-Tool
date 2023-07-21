@@ -1,6 +1,7 @@
 import Hero from "./components/Hero";
 import Summarize from "./components/Summarize";
 import "./App.css";
+import ContentDetectors from "./components/ContentDetectors";
 
 const App = () => {
   return (
@@ -11,7 +12,8 @@ const App = () => {
 
       <div className="app">
         <Hero />
-        <Summarize />
+        {/* <Summarize /> */}
+        <ContentDetectors />
       </div>
     </main>
   );
