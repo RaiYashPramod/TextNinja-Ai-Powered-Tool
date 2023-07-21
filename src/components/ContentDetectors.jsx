@@ -32,7 +32,7 @@ const ContentDetectors = () => {
           <textarea
             id="paragraphInput"
             className="w-full h-96 resize-none border border-gray-300 rounded-md p-2 focus:outline-none focus:border-blue-500"
-            placeholder="Paste your content here..."
+            placeholder="Paste your content here... (should not be less than 10 words)"
             value={content}
             onChange={(e) => setContent(e.target.value)}
           ></textarea>
