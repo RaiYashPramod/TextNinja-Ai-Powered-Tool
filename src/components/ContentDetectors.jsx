@@ -41,7 +41,7 @@ const ContentDetectors = () => {
             type="submit"
             disabled={!isContentValid}
           >
-            Submit
+            {isFetching ? <p>Loading...</p> : <p>Analyze</p>}
           </button>
         </form>
       </div>
@@ -56,7 +56,6 @@ const ContentDetectors = () => {
         </div>
       )}
       {error && <div>Error: {error.message}</div>}
-      {isFetching && <div>Loading...</div>}
     </section>
   );
 };
