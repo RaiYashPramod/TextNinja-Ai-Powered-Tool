@@ -55,7 +55,7 @@ const ContentDetectors = () => {
           <strong>Fake Probability:</strong> {fakeProbability}
         </div>
       )}
-      {error && <div>Error: {error.message}</div>}
+      {error && <div>Error {error?.data?.error}</div>}
     </section>
   );
 };

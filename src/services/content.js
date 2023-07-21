@@ -14,7 +14,7 @@ export const contentApi = createApi({
   }),
   endpoints: (builder) => ({
     getContentDetection: builder.query({
-      query: (params) => `/?text=${params.contentText}`,
+      query: (params) => `/?text=${encodeURIComponent(params.contentText)}`,
     }),
   }),
   reducerPath: "contentApi",
