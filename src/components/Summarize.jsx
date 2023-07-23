@@ -75,7 +75,7 @@ const Summarize = () => {
               ↵
             </button>
           </form>
-          <div className="flex flex-col max-h-32 overflow-y-auto scrollbar-thin scrollbar-thumb-purple-500 scrollbar-track-purple-200">
+          <div className="flex flex-col max-h-32 overflow-y-auto">
             {searchArticles.map((item, index) => (
               <div
                 key={`link-${index}`}
