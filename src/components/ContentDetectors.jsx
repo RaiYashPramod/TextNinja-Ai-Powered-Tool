@@ -27,7 +27,7 @@ const ContentDetectors = () => {
       <section className="mt-5 w-full max-w-7xl">
         <div className="flex items-center justify-center min-h-full">
           <div className="w-full max-w-md">
-            <h2 className="font-satoshi font-bold text-gray-600 text-xl text-center">
+            <h2 className="font-satoshi font-bold text-gray-600 text-xl text-center p-6">
               Paste the Content
             </h2>
             <form action="" onSubmit={handleSubmit}>
