@@ -33,7 +33,7 @@ const ContentDetectors = () => {
             <form action="" onSubmit={handleSubmit}>
               <textarea
                 id="paragraphInput"
-                className="w-full h-80 resize-none border border-gray-300 rounded-md p-2 focus:outline-none focus:border-blue-500"
+                className="w-full h-80 resize-none border border-gray-300 rounded-md p-2 focus:outline-none focus:border-blue-500 bg-white/20 shadow-[inset_10px_-50px_94px_0_rgb(199,199,199,0.2)] backdrop-blur"
                 placeholder="Paste your content here... (should not be less than 10 words)"
                 value={content}
                 onChange={(e) => setContent(e.target.value)}

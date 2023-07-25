@@ -1,18 +1,50 @@
-import React from "react";
+import React, { useState } from "react";
+import { useLazyGetParaPhraseQuery } from "../services/paraphrasing";
 
 const ParaPhrasing = () => {
-  return (
-    <section>
-      <div className="flex flex-row">
-        <div className="w-45"></div>
+  const [textArea, setTextArea] = useState();
+  const [correctArea, setCorrectArea] = useState();
+  const [getParaPhrase, { error, isFetching }] = useLazyGetParaPhraseQuery();
 
-        <div className="gap-1 max-h-80 overflow-y-auto scrollbar-thin scrollbar-thumb-gray-300 scrollbar-track-gray-100">
-          <div className="summary_box">
-            <p className="font-inter font-medium text-sm text-gray-700">
-              Lorem ipsum dolor sit amet consectetur adipisicing elit. Deserunt ipsa asperiores quam consectetur vitae. A eos nulla et sunt, velit provident impedit reiciendis id necessitatibus, numquam aspernatur maxime vitae adipisci.
-            </p>
-          </div>
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+
+    const { data: result } = await getParaPhrase({
+      ParaPhraseText: textArea,
+    });
+
+    setCorrectArea(result);
+  };
+  return (
+    <section className="">
+      <div className="flex flex-row gap-3 justify-between">
+        <div className="w-2/4">
+          <form action="" onSubmit={handleSubmit}>
+            <textarea
+              id="paragraphInput"
+              className="w-full h-80 resize-none border border-gray-300 rounded-md p-2 focus:outline-none focus:border-blue-500 bg-white/20 shadow-[inset_10px_-50px_94px_0_rgb(199,199,199,0.2)] backdrop-blur"
+              placeholder="Write your content here..."
+              value={textArea}
+              onChange={(e) => setTextArea(e.target.value)}
+            ></textarea>
+            <button
+              className="my-2 px-4 py-2 w-full bg-blue-500 text-white font-semibold rounded-md hover:bg-blue-600 focus:outline-none focus:bg-blue-600"
+              type="submit"
+              // disabled={!isContentValid}
+            >
+              {isFetching ? <p>Loading...</p> : <p>Analyze</p>}
+            </button>
+          </form>
         </div>
+        {isFetching ? (
+          <p>Loading...</p>
+        
+          ) : error ? (
+            <p>Error</p>):(
+          <div className="h-80 w-2/4 overflow-y-auto rounded-md">
+            <div className="summary_box">{correctArea?.ParaPhraseText}</div>
+          </div>
+        )}
       </div>
     </section>
   );

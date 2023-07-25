@@ -119,7 +119,7 @@ const Summarize = () => {
             </p>
           ) : (
             article.summary && (
-              <div className="flex flex-col gap-1 max-h-80 overflow-y-auto scrollbar-thin scrollbar-thumb-gray-300 scrollbar-track-gray-100">
+              <div className="flex flex-col gap-1 max-h-80 overflow-y-auto">
                 <h2 className="font-satoshi font-bold text-gray-600 text-xl">
                   Article <span className="blue_gradient">Summary</span>
                 </h2>
