@@ -94,7 +94,7 @@ const App = () => {
             </p>
           </Modal>
         </div>
-        {/* <div>
+        <div>
           <button
             onClick={openCodeGenerationModal}
             className="bg-gradient-to-r from-amber-500 via-orange-600 to-yellow-500 text-white px-6 py-3 rounded-full shadow-md text-xl font-bold transform hover:scale-105 transition-all my-3 w-60"
@@ -114,7 +114,7 @@ const App = () => {
             </p>
           </Modal>
         </div>
-        <div>
+        {/* <div>
           <button
             onClick={openParaPhrasingModal}
             className="bg-gradient-to-r from-amber-500 via-orange-600 to-yellow-500 text-white px-6 py-3 rounded-full shadow-md text-xl font-bold transform hover:scale-105 transition-all my-3 w-60"

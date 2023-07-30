@@ -22,7 +22,7 @@ const Hero = () => {
       <h1 className="head_text">
         <TypewriterComponent
           options={{
-            strings: ["Article-Summarizer", "Text-Translator", "Para-Phrasing", "Content-Detector", "Text-Extractor", "Code-Generation"],
+            strings: ["Article-Summarizer", "Text-Translator", "Para-Phrasing", "Content-Detector", "Text-Extractor", "Code-Converter"],
             autoStart: true,
             loop: true,
           }}
@@ -32,8 +32,7 @@ const Hero = () => {
       </h1>
 
       <h2 className="desc">
-        Simplify your reading with the help of AI-Model that transforms lenghty
-        articles into clear and concise summaries
+        Harness the power of GPT-4 using some amazing Tools. More Tools will be added soon!!
       </h2>
     </header>
   );
