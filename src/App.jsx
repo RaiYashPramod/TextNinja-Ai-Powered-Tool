@@ -99,7 +99,7 @@ const App = () => {
             onClick={openCodeGenerationModal}
             className="bg-gradient-to-r from-amber-500 via-orange-600 to-yellow-500 text-white px-6 py-3 rounded-full shadow-md text-xl font-bold transform hover:scale-105 transition-all my-3 w-60"
           >
-            Code Generation
+            Code Converter
           </button>
 
           <Modal
@@ -107,7 +107,7 @@ const App = () => {
             onClose={closeCodeGenerationModal}
           >
             <h2 className="text-xl font-bold mb-4">
-              Generate Code By writing what you want.
+              Converting Code became easier than ever.
             </h2>
             <p>
               <CodeGeneration />

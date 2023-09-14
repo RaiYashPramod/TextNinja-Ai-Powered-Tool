@@ -1,6 +1,12 @@
 import React from "react";
+import PropTypes from "prop-types";
 
 const Modal = ({ isOpen, onClose, children }) => {
+  const closeModal = (e) => {
+    e.preventDefault();
+    onClose();
+  };
+
   return (
     <div
       className={`fixed inset-0 z-50 flex items-center justify-center overflow-x-hidden overflow-y-auto ${
@@ -8,10 +14,10 @@ const Modal = ({ isOpen, onClose, children }) => {
       }`}
     >
       <div className="fixed inset-0 bg-black opacity-50"></div>
-      <div className="bg-white rounded-lg p-6 z-50 max-w-3/4 w-3/4 h-3/4">
+      <div className="bg-white rounded-lg p-6 z-50 max-w-3/4 w-3/4">
         <div className="flex justify-end">
           <button
-            onClick={onClose}
+            onClick={closeModal}
             className="text-gray-500 hover:text-gray-800 transition-all focus:outline-none"
           >
             <svg
@@ -30,10 +36,16 @@ const Modal = ({ isOpen, onClose, children }) => {
             </svg>
           </button>
         </div>
-        {children}
+        <div className="modal-content">{children}</div>
       </div>
     </div>
   );
+};
+
+Modal.propTypes = {
+  isOpen: PropTypes.bool.isRequired,
+  onClose: PropTypes.func.isRequired,
+  children: PropTypes.node.isRequired,
 };
 
 export default Modal;
