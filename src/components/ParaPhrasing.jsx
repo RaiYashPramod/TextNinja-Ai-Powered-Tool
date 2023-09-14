@@ -8,9 +8,9 @@ const ParaPhrasing = () => {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-
+    console.log(textArea);
     const { data: result } = await getParaPhrase({
-      ParaPhraseText: textArea,
+      text : textArea,
     });
 
     setCorrectArea(result);
@@ -42,7 +42,7 @@ const ParaPhrasing = () => {
           ) : error ? (
             <p>Error</p>):(
           <div className="h-80 w-2/4 overflow-y-auto rounded-md">
-            <div className="summary_box">{correctArea?.ParaPhraseText}</div>
+            <div className="summary_box">{correctArea?.text} ans </div>
           </div>
         )}
       </div>
